@@ -11,7 +11,7 @@ app.controller('mainController', ($scope, $http) => {
   .error((error) => {
     console.log('Error: ' + error);
   });
-    // Create a new todo
+    // Create a new user
   $scope.createUser = () => {
     $http.post('/api/v1/users', $scope.formData)
     .success((data) => {
@@ -23,7 +23,7 @@ app.controller('mainController', ($scope, $http) => {
       console.log('Error: ' + error);
     });
   };
-  // Delete a todo
+  // Delete a user
   $scope.deleteUser = (userID) => {
     $http.delete('/api/v1/users/' + todoID)
     .success((data) => {
