@@ -6,8 +6,12 @@ const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
+
+router.get('/', (req, res, next) => {
+  res.render('index.html');
 });
 
 router.post('/api/v1/users', (req, res, next) => {
