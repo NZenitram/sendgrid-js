@@ -1,5 +1,5 @@
-angular.module('sendgrid-webhook', [])
-.controller('mainController', ($scope, $http) => {
+var app = angular.module('sendgrid-webhook', [])
+app.controller('mainController', ($scope, $http) => {
   $scope.formData = {};
   $scope.userData = {};
   // Get all users
