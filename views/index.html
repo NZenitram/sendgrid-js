@@ -1,1 +1,27 @@
-Welcome
+<!DOCTYPE html>
+<html ng-app="sendgrid-webhook">
+  <head>
+    <title>SendGrid JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body ng-controller="mainController">
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username">
+          <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email">
+          <input type="text" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Create User</button>
+      </form>
+      <ul ng-repeat="todo in todoData">
+        <li><input type="checkbox" ng-click="deleteTodo(user.id)">&nbsp;{{ user.username }}</li>
+      </ul>
+    </div>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
+  </body>
+</html>

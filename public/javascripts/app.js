@@ -1,4 +1,4 @@
-angular.module('nodeUsers', [])
+angular.module('sendgrid-webhook', [])
 .controller('mainController', ($scope, $http) => {
   $scope.formData = {};
   $scope.userData = {};
@@ -11,4 +11,27 @@ angular.module('nodeUsers', [])
   .error((error) => {
     console.log('Error: ' + error);
   });
+    // Create a new todo
+  $scope.createUser = () => {
+    $http.post('/api/v1/users', $scope.formData)
+    .success((data) => {
+      $scope.formData = {};
+      $scope.userData = data;
+      console.log(data);
+    })
+    .error((error) => {
+      console.log('Error: ' + error);
+    });
+  };
+  // Delete a todo
+  $scope.deleteUser = (userID) => {
+    $http.delete('/api/v1/users/' + todoID)
+    .success((data) => {
+      $scope.userData = data;
+      console.log(data);
+    })
+    .error((data) => {
+      console.log('Error: ' + data);
+    });
+  };
 });
