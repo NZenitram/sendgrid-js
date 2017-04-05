@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
-  <body>
-    <div class="container"  ng-controller="mainController">
+  <body ng-controller="mainController">
+    <div class="container">
       <form>
         <div class="form-group">
           <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username">
@@ -17,7 +17,8 @@
       </form>
       <div class="user-list">
         <ul>
-          <li ng-repeat="user in userData"><input class="lead" type="checkbox" ng-click="deleteUser(user.id)">{{ user.username }}</li>
+          <li ng-repeat="user in userData"><input type="checkbox" ng-click="deleteUser(user.id)">{{ user.username }}
+          </li>
         </ul>
       </div>
     </div>
