@@ -14,5 +14,8 @@
     "morgan": "~1.7.0",
     "pg": "^6.1.5",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "pathfinder-ui": "^1.0.3"
   }
 }
