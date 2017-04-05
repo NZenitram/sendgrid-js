@@ -5,7 +5,7 @@ angular.module('sendgrid-webhook', [])
   // Get all users
   $http.get('api/v1/users')
   .success((data) => {
-    $scope.todoData = data;
+    $scope.userData = data;
     console.log(data);
   })
   .error((error) => {

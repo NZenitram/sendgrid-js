@@ -15,8 +15,8 @@
         </div>
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Create User</button>
       </form>
-      <ul ng-repeat="todo in todoData">
-        <li><input type="checkbox" ng-click="deleteTodo(user.id)">&nbsp;{{ user.username }}</li>
+      <ul ng-repeat="user in userData">
+        <li><input type="checkbox" ng-click="deleteUser(user.id)">&nbsp;{{ user.username }}</li>
       </ul>
     </div>
     <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
