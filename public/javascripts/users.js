@@ -3,14 +3,10 @@ angular.module('sendgrid-webhook', [])
   $scope.formData = {};
   // Get all users
   $http.get('api/v1/users')
-<<<<<<< HEAD:public/javascripts/users.js
     .then(function(response) {
       $scope.userData = response.data;
       console.log($scope.userData);
-    });
-  .error((error) => {
-    console.log('Error: ' + error);
-  });
+    })
     // Create a new user
   $scope.createUser = () => {
     $http.post('/api/v1/users', $scope.formData)
