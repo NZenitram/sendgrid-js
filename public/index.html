@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="sendgrid-webhook">
+<html>
   <head>
     <title>SendGrid JS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="">
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="javascripts/users.js"></script>
   </head>
-  <body ng-controller="mainController">
+  <body ng-app="sendgrid-webhook" ng-controller="mainController">
     <div class="container">
       <form>
         <div class="form-group">
@@ -17,14 +23,9 @@
       </form>
       <div class="user-list">
         <ul>
-          <li ng-repeat="user in userData"><input type="checkbox" ng-click="deleteUser(user.id)">{{ user.username }}
-          </li>
+          <li ng-repeat="user in userData"><input type="checkbox" ng-click="deleteUser(user.id)" /> {{ user.username }} </li>
         </ul>
       </div>
     </div>
-    <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
-    <script src="javascripts/app.js"></script>
   </body>
 </html>

@@ -1,16 +1,12 @@
-var app = angular.module('sendgrid-webhook', [])
-app.controller('mainController', ($scope, $http) => {
+angular.module('sendgrid-webhook', [])
+.controller('mainController', ($http, $scope) => {
   $scope.formData = {};
-  $scope.userData = {};
   // Get all users
   $http.get('api/v1/users')
-  .success((data) => {
-    $scope.userData = data;
-    console.log(data);
-  })
-  .error((error) => {
-    console.log('Error: ' + error);
-  });
+    .then(function(response) {
+      $scope.userData = response.data;
+      console.log($scope.userData);
+    });
     // Create a new todo
   $scope.createUser = () => {
     $http.post('/api/v1/users', $scope.formData)
