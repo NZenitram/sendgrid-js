@@ -1,5 +1,5 @@
-angular.module('sendgrid-webhook', [])
-.controller('mainController', ($http, $scope) => {
+var app = angular.module('sendgridWebhook', [])
+app.controller('userController', ($http, $scope) => {
   $scope.formData = {};
   // Get all users
   $http.get('api/v1/users')
@@ -21,7 +21,7 @@ angular.module('sendgrid-webhook', [])
   };
   // Delete a user
   $scope.deleteUser = (userID) => {
-    $http.delete('/api/v1/users/' + todoID)
+    $http.delete('/api/v1/users/' + userID)
     .success((data) => {
       $scope.userData = data;
       console.log(data);

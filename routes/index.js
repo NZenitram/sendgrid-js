@@ -14,6 +14,10 @@ router.get('/', (req, res, next) => {
   res.render('index.html');
 });
 
+router.get('/createuser', (req, res, next) => {
+  res.render('createuser.html');
+});
+
 router.post('/api/v1/users', (req, res, next) => {
   const results = [];
   // Grab data from http request
