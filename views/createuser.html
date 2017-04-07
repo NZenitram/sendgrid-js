@@ -1,0 +1,16 @@
+
+<div class="container" ng-controller="userController">
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username">
+      <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email">
+      <input type="text" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Create User</button>
+  </form>
+  <div class="user-list">
+    <ul>
+      <li id="users" ng-repeat="user in userData"><button type="checkbox" ng-click="deleteUser(user.id)">Del</button> {{ user.username }} </li>
+    </ul>
+  </div>
+</div>
