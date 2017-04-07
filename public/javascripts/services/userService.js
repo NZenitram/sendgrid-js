@@ -1,5 +1,14 @@
-var app = angular.module('sendgridWebhook', [])
-app.controller('userController', ($http, $scope) => {
+var app = angular.module('sendgridWebhook', ["ngRoute"])
+
+app.config( ($routeProvider) => {
+  $routeProvider
+  .when("/createuser", {
+    templateUrl: "createuser.html",
+    controller: "userController"
+  })
+})
+
+app.controller('userController', function($http, $scope) {
   $scope.formData = {};
   // Get all users
   $http.get('api/v1/users')

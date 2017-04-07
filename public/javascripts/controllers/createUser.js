@@ -1,7 +1,8 @@
-var app = angular.module("sendgridWebhook", ["ngRoute"]);
-app.config( ($routeProvider) => {
-  $routeProvider
-  .when("/createuser", {
-    templateUrl: "createuser.html"
-  })
-})
+// var appRoutes = angular.module("sendgridWebhook", ["ngRoute"]);
+// appRoutes.config( ($routeProvider) => {
+//   $routeProvider
+//   .when("/createuser", {
+//     templateUrl: "createuser.html",
+//     controller: "userController"
+//   })
+// })
