@@ -1,0 +1,27 @@
+#create-user-button {
+  font-size: 14px;
+  margin-top: 15px;
+  border-radius: 3px;
+  background-color: #1A82E2;
+  color: white;
+  border: none
+}
+
+#create-user-button:hover {
+  background-color: #294661;
+  transition: background 0.2s linear;
+}
+
+.form-control {
+  border-radius: 1px;
+  width: 150px;
+  margin-top: 15px;
+  font-size: 18px;
+  border: 0;
+  border-bottom: 1px solid #d4dadf;
+
+}
+
+.form-group {
+
+}

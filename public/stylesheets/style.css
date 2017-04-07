@@ -1,6 +1,6 @@
 @import url(create_users.css);
 @import url(nav_bar.css);
-
+@import url(create_user_form.css);
 
 html, body {
   margin: 0;
@@ -11,4 +11,10 @@ html, body {
 
 a {
   color: #00B7FF;
+}
+
+#main-view {
+  margin: 15px;
+  margin-left: 95px;
+  margin-right: 95px;
 }

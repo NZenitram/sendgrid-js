@@ -2,11 +2,19 @@
 <div class="container" ng-controller="userController">
   <form>
     <div class="form-group">
-      <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username">
-      <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email">
-      <input type="text" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+      <div>
+        <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username">
+      </div>
+      <div>
+        <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email">
+      </div>
+      <div>
+        <input type="text" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+      </div>
+      <div>
+        <button type="submit" id="create-user-button" ng-click="createUser()">Create User</button>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-lg" ng-click="createUser()">Create User</button>
   </form>
   <div class="user-list">
     <ul>
