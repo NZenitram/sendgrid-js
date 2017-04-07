@@ -1,0 +1,56 @@
+.navbar-fixed-top {
+  top: 5px;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+}
+
+#body_div {
+  top: 0;
+  position: relative;
+  height: 200px;
+  background-color: green;
+}
+
+#banner {
+  width: 100%;
+  height: 50px;
+  background-color: gray;
+  overflow: hidden;
+}
+
+#nav_bar {
+  border: 0;
+  background-color: #202020;
+  border-radius: 0px;
+  margin-bottom: 0;
+  height: 50px;
+}
+
+//the below css are for the links, not needed for sticky nav
+.nav_links {
+  margin: 0;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding-top: 15px;
+}
+
+.nav_links li a {
+  padding: 0 15.5px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.navbar-fixed-top li {
+  display: inline-block;
+  padding-top: 4px;
+}
+
+.navbar-fixed-top li a {
+  padding: 0 15.5px;
+  color: #3498db;
+  text-decoration: none;
+}

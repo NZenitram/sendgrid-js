@@ -1,5 +1,11 @@
-body {
-  padding: 50px;
+@import url(create_users.css);
+@import url(nav_bar.css);
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 4000px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
