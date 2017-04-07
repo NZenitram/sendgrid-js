@@ -11,7 +11,6 @@ $(document).ready(function() {
     if ($(window).scrollTop() > 150) {
       $('#nav_bar').addClass('navbar-fixed-top');
       $('#nav_bar').find("ul").removeClass('nav_links');
-
     }
 
     if ($(window).scrollTop() < 151) {
