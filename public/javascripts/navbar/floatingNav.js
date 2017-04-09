@@ -8,12 +8,10 @@ $(document).ready(function() {
 
     if ($(window).scrollTop() > 150) {
       $('#nav_bar').addClass('navbar-fixed-top');
-      // $('#nav_bar').find("ul").removeClass('nav_links');
     }
 
     if ($(window).scrollTop() < 151) {
       $('#nav_bar').removeClass('navbar-fixed-top');
-      // $('#nav_bar').find("ul").addClass('nav_links');
     }
   });
 });
