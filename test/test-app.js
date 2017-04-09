@@ -41,7 +41,8 @@ describe('Users', function() {
         done();
       })
   });
-  // it('should list a SINGLE usser on /blob/<id> GET')
+  it('should list a SINGLE usser on /blob/<id> GET')
+    
   it('should add a SINGLE user on /users POST', function(done){
 
     chai.request(server)
