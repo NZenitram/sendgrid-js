@@ -1,7 +1,5 @@
 process.env.NODE_ENV = 'test';
 process.env.DATABASE_URL = 'postgres://localhost:5432/sg_webhook_test';
-var DatabaseCleaner = require('database-cleaner');
-ar databseCleaner -  new DatabaseCleaner(pg);
 
 var chai = require('chai')
 var chaiHttp = require('chai-http');
@@ -12,6 +10,26 @@ var should = chai.should();
 chai.use(chaiHttp);
 
 describe('Users', function() {
+  const pg = require('pg');
+  const connectionString = 'postgres://localhost:5432/sg_webhook_test';
+
+  beforeEach(function(done){
+    const client = new pg.Client(connectionString);
+    client.connect();
+    const query = client.query(
+      'TRUNCATE users;' );
+    query.on('end', () => { client.end(); });
+    done();
+  });
+
+  afterEach(function(done){
+    const client = new pg.Client(connectionString);
+    client.connect();
+    const query = client.query(
+      'TRUNCATE users' );
+    query.on('end', () => { client.end(); });
+    done();
+  })
 
   it('should list ALL users on /api/v1/users GET', function(done) {
     chai.request(server)
@@ -23,8 +41,8 @@ describe('Users', function() {
         done();
       })
   });
-  it('should list a SINGLE usser on /blob/<id> GET')
-  it('should add a SINGLE blob on /blobs POST', function(done){
+  // it('should list a SINGLE usser on /blob/<id> GET')
+  it('should add a SINGLE user on /users POST', function(done){
 
     chai.request(server)
       .post('/api/v1/users')
@@ -37,6 +55,6 @@ describe('Users', function() {
         done();
       })
   });
-  it('should update a SINGLE blob on /blob/<id> PUT');
-  it('should delete a SINGLE blob on /blob<id> DELETE');
+  it('should update a SINGLE user on /user/<id> PUT');
+  it('should delete a SINGLE user on /user<id> DELETE');
 })
