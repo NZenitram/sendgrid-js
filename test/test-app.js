@@ -16,12 +16,16 @@ describe('Users', function() {
   const connectionString = 'postgres://localhost:5432/sg_webhook_test';
 
   beforeEach(function(done){
-    const client = new pg.Client(connectionString);
-    client.connect();
-    const query = client.query(
-      'TRUNCATE users;' );
-    query.on('end', () => { client.end(); });
-    done();
+    var testUser = new User("NewUserSave", "test@java.com", "123456");
+    chai.request(server)
+      .post('/api/v1/users')
+      .send(testUser)
+      .end(function(err, res){
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        done();
+    })
   });
 
   afterEach(function(done){
@@ -40,25 +44,35 @@ describe('Users', function() {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
-        done();
       })
+      done();
   });
-  it('should list a SINGLE usser on /users/<id> GET')
-    var testUser = new User("UserSave", "test@java.com", "123456");
-    var db = new dbOperations();
-    db.saveUser(testUser)
+
+  it('should list a SINGLE usser on /users/<id> GET', function(done){
+    chai.request(server)
+      .get('/api/v1/users')
+      .end(function(err, res){
+        var id = res.body[0].id
+        console.log(id);
+      .get('/api/v1/users/' +id)
+      .end(function(err, res){
+
+      })
+    })
+    done();
+  });
 
   it('should add a SINGLE user on /users POST', function(done){
-
+    var testUser = new User("NewUserSave", "test@java.com", "123456");
     chai.request(server)
       .post('/api/v1/users')
-      .send({username: 'Java', email: 'mocha@chai.com', password: '123456'})
+      .send(testUser)
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
-        done();
       })
+      done();
   });
   it('should update a SINGLE user on /user/<id> PUT');
   it('should delete a SINGLE user on /user<id> DELETE');
