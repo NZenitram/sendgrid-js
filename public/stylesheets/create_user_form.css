@@ -13,8 +13,9 @@
 }
 
 .form-control {
+  text-align: center;
   border-radius: 1px;
-  width: 150px;
+  width: 250px;
   margin-top: 15px;
   font-size: 18px;
   border: 0;

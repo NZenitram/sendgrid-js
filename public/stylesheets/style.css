@@ -1,6 +1,7 @@
 @import url(create_users.css);
 @import url(nav_bar.css);
 @import url(create_user_form.css);
+@import url(images.css);
 
 html, body {
   margin: 0;

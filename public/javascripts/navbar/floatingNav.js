@@ -6,8 +6,6 @@ $(document).ready(function() {
   //you know the position.
   $(window).scroll(function () {
 
-    console.log($(window).scrollTop());
-
     if ($(window).scrollTop() > 150) {
       $('#nav_bar').addClass('navbar-fixed-top');
       $('#nav_bar').find("ul").removeClass('nav_links');

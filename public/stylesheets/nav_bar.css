@@ -33,14 +33,14 @@
 }
 
 .nav_links li {
-  
+
   display: inline-block;
   padding-top: 15px;
 }
 
 .nav_links li a {
   padding: 0 15.5px;
-  color: #3498db;
+  color: #1A82E2;
   text-decoration: none;
 }
 

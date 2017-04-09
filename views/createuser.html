@@ -9,7 +9,10 @@
         <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email">
       </div>
       <div>
-        <input type="text" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+        <input name="password" type="password" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+      </div>
+      <div>
+        <input name="confirm_password" type="password" class="form-control input-lg" placeholder="Confirm Password" ng-model="formData.confirmPassword">
       </div>
       <div>
         <button type="submit" id="create-user-button" ng-click="createUser()">Create User</button>
