@@ -1,4 +1,7 @@
 process.env.NODE_ENV = 'test';
+process.env.DATABASE_URL = 'postgres://localhost:5432/sg_webhook_test';
+var DatabaseCleaner = require('database-cleaner');
+ar databseCleaner -  new DatabaseCleaner(pg);
 
 var chai = require('chai')
 var chaiHttp = require('chai-http');
@@ -9,6 +12,7 @@ var should = chai.should();
 chai.use(chaiHttp);
 
 describe('Users', function() {
+
   it('should list ALL users on /api/v1/users GET', function(done) {
     chai.request(server)
       .get('/api/v1/users')
@@ -30,8 +34,6 @@ describe('Users', function() {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
-        res.body.should.have.property('name');
-        res.body.name.should.equal('Jave');
         done();
       })
   });
