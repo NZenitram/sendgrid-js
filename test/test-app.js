@@ -6,6 +6,8 @@ var chaiHttp = require('chai-http');
 var server = require('../app.js');
 var request = require('supertest');
 var should = chai.should();
+var User = require('../models/user.js')
+var dbOperations = require('../models/dbOperations.js')
 
 chai.use(chaiHttp);
 
@@ -41,15 +43,17 @@ describe('Users', function() {
         done();
       })
   });
-  it('should list a SINGLE usser on /blob/<id> GET')
-    
+  it('should list a SINGLE usser on /users/<id> GET')
+    var testUser = new User("UserSave", "test@java.com", "123456");
+    var db = new dbOperations();
+    db.saveUser(testUser)
+
   it('should add a SINGLE user on /users POST', function(done){
 
     chai.request(server)
       .post('/api/v1/users')
       .send({username: 'Java', email: 'mocha@chai.com', password: '123456'})
       .end(function(err, res){
-        console.log(res.body)
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
