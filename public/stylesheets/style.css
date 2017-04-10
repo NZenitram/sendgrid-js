@@ -1,8 +1,21 @@
-body {
-  padding: 50px;
+@import url(create_users.css);
+@import url(nav_bar.css);
+@import url(create_user_form.css);
+@import url(images.css);
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 4000px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#main-view {
+  margin: 15px;
+  margin-left: 95px;
+  margin-right: 95px;
 }
