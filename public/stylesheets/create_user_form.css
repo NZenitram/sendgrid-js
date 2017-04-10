@@ -23,6 +23,9 @@
 
 }
 
-.form-group {
-
+#create-user-button:disabled,
+#create-user-button[disabled]{
+  border: 0;
+  background-color: #cccccc;
+  color: #666666;
 }

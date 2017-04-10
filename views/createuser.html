@@ -1,21 +1,21 @@
 
 <div class="container" ng-controller="userController">
-  <form>
+  <form name="userForm">
     <div class="form-group">
       <div>
-        <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username">
+        <input type="text" class="form-control input-lg" placeholder="Username" ng-model="formData.username" required />
       </div>
       <div>
-        <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email">
+        <input type="email" id="email" name="email" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email" required />
       </div>
       <div>
-        <input name="password" type="password" class="form-control input-lg" placeholder="Password" ng-model="formData.password">
+        <input name="password" type="password" class="form-control input-lg" placeholder="Password" ng-model="formData.password" required />
       </div>
       <div>
-        <input name="confirm_password" type="password" class="form-control input-lg" placeholder="Confirm Password" ng-model="formData.confirmPassword">
+        <input name="confirm_password" type="password" class="form-control input-lg" placeholder="Confirm Password" ng-model="formData.confirmPassword" ng-pattern="formData.password" required />
       </div>
       <div>
-        <button type="submit" id="create-user-button" ng-click="createUser()">Create User</button>
+        <button type="submit" id="create-user-button" ng-disabled="formData.password != formData.confirmPassword" ng-click="createUser()">Create User</button>
       </div>
     </div>
   </form>
