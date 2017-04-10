@@ -4,11 +4,6 @@ const pg = require('pg');
 const path = require('path');
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/sg_webhook';
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
-
 router.post('/api/v1/users', (req, res, next) => {
   const results = [];
   // Grab data from http request
@@ -86,8 +81,6 @@ router.get('/api/v1/users/:user_id', (req, res, next) => {
       });
   });
 });
-
-
 
 router.put('/api/v1/users/:user_id', (req, res, next) => {
   const results = [];

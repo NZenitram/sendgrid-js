@@ -7,7 +7,7 @@ var server = require('../app.js');
 var request = require('supertest');
 var should = chai.should();
 var User = require('../models/user.js')
-var dbOperations = require('../models/dbOperations.js')
+var dbOperations = require('../models/dbUserOperations.js')
 
 chai.use(chaiHttp);
 
@@ -15,7 +15,7 @@ describe('Users', function() {
   const pg = require('pg');
   const connectionString = 'postgres://localhost:5432/sg_webhook_test';
 
-  beforeEach(function(done){
+  before(function(done){
     var testUser = new User("NewUserSave", "test@java.com", "123456");
     chai.request(server)
       .post('/api/v1/users')
@@ -28,14 +28,14 @@ describe('Users', function() {
     })
   });
 
-  // afterEach(function(done){
-  //   const client = new pg.Client(connectionString);
-  //   client.connect();
-  //   const query = client.query(
-  //     'TRUNCATE users' );
-  //   query.on('end', () => { client.end(); });
-  //   done();
-  // })
+  after(function(done){
+    const client = new pg.Client(connectionString);
+    client.connect();
+    const query = client.query(
+      'TRUNCATE users' );
+    query.on('end', () => { client.end(); });
+    done();
+  })
 
   it('should list ALL users on /api/v1/users GET', function(done) {
     chai.request(server)

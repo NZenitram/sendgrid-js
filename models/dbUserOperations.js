@@ -64,6 +64,4 @@ var dbOperations = function(){
   };
 };
 
-
-
 module.exports = dbOperations;
