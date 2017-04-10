@@ -9,10 +9,12 @@
         <input type="email" id="email" name="email" class="form-control input-lg" placeholder="Email Address" ng-model="formData.email" required />
       </div>
       <div>
-        <input name="password" type="password" class="form-control input-lg" placeholder="Password" ng-model="formData.password" required />
+        <input name="password" type="password" class="form-control input-lg" placeholder="Password" ng-model="formData.password" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
+        <span ng-show="!userForm.password.$error.required &&  userForm.password.$error.pattern && userForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
       </div>
       <div>
         <input name="confirm_password" type="password" class="form-control input-lg" placeholder="Confirm Password" ng-model="formData.confirmPassword" ng-pattern="formData.password" required />
+        <span ng-show="formData.password != formData.confirmPassword">Your passwords must match.</span>
       </div>
       <div>
         <button type="submit" id="create-user-button" ng-disabled="formData.password != formData.confirmPassword" ng-click="createUser()">Create User</button>
