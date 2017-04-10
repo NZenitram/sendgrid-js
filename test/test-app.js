@@ -28,14 +28,14 @@ describe('Users', function() {
     })
   });
 
-  afterEach(function(done){
-    const client = new pg.Client(connectionString);
-    client.connect();
-    const query = client.query(
-      'TRUNCATE users' );
-    query.on('end', () => { client.end(); });
-    done();
-  })
+  // afterEach(function(done){
+  //   const client = new pg.Client(connectionString);
+  //   client.connect();
+  //   const query = client.query(
+  //     'TRUNCATE users' );
+  //   query.on('end', () => { client.end(); });
+  //   done();
+  // })
 
   it('should list ALL users on /api/v1/users GET', function(done) {
     chai.request(server)
@@ -51,12 +51,12 @@ describe('Users', function() {
   it('should list a SINGLE user on /users/<id> GET', function(done){
     var db = new dbOperations
     db.findByUserName('NewUserSave', function(err, user){
-      const id = user[0].id
+      const id = user[0].id;
       chai.request(server)
         .get('/api/v1/users/' +id)
         .end(function(err, res){
           res.should.have.status(200);
-          console.log(res);
+          console.log(res.body);
         })
     })
     done();
