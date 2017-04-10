@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static(path.join(__dirname, 'mode')));
 app.use('/', routes);
-app.use('/users', users);
+app.use('/', users);
 
 // pathfinder
 app.use('/pathfinder', function(req, res, next){
