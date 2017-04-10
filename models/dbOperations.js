@@ -6,6 +6,24 @@ var dbOperations = function(){
   var express = require('express');
   var app = express();
 
+  this.findByUserName = function(username, callback) {
+    const results = [];
+    pg.connect(connectionString, function(err, client) {
+      if(err) {
+        done();
+        console.log(err);
+        return res.status(500).json({ success: false, data: err });
+        }
+
+      const query = client.query('SELECT * FROM users WHERE username=($1)', [username]);
+      query.on('row', (row) => {
+        results.push(row);
+      });
+      query.on('end', (done) => {
+        callback(err, results);
+      });
+    });
+  };
 };
 
 module.exports = dbOperations;

@@ -48,16 +48,16 @@ describe('Users', function() {
       done();
   });
 
-  it('should list a SINGLE usser on /users/<id> GET', function(done){
-    chai.request(server)
-      .get('/api/v1/users')
-      .end(function(err, res){
-        var id = res.body[0].id
-        console.log(id);
-      .get('/api/v1/users/' +id)
-      .end(function(err, res){
-
-      })
+  it('should list a SINGLE user on /users/<id> GET', function(done){
+    var db = new dbOperations
+    db.findByUserName('NewUserSave', function(err, user){
+      const id = user[0].id
+      chai.request(server)
+        .get('/api/v1/users/' +id)
+        .end(function(err, res){
+          res.should.have.status(200);
+          console.log(res);
+        })
     })
     done();
   });
